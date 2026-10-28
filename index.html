@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport нужен, чтобы вёрстка корректно масштабировалась на телефонах -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My-Giro — магазин гироскутеров</title>
+  <!-- стили подключены в head, чтобы страница не «мигала» неоформленным текстом при загрузке -->
+  <link rel="stylesheet" href="CSS/Style/Style.css">
+</head>
+<body>
+
+<!-- Верхняя полоса: телефон и кнопка вынесены отдельно от шапки,
+     чтобы их можно было скрыть на мобильных без ломки меню -->
+<div class="topbar">
+  <div class="container">
+    <p>Мы всегда рады помочь по телефону +7 922 556 90 90</p>
+    <!-- кнопка без type внутри div — она не отправляет форму, а просто ждёт обработчик -->
+    <button class="btn-orange">Заказать звонок</button>
+  </div>
+</div>
+
+<!-- Пункты меню — якоря на id секций ниже: переход происходит внутри страницы
+     без перезагрузки. Поэтому id у секций менять нельзя — сломаются ссылки -->
+<header class="site-header">
+  <div class="container">
+    <div class="logo">My-Giro</div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#advantages">Преимущества</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#features">Особенности</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#consultants">Команда</a></li>
+        <li><a href="#brands">Бренды</a></li>
+        <li><a href="#info">Полезное</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Фон вынесен в отдельный <img>, а не в background: так картинка
+     честно грузится как контент, и hero может тянуться по высоте под текст -->
+<section class="hero">
+  <img src="CSS/img/главная.jpg" alt="Сигвей" class="hero-bg">
+  <div class="hero-content">
+    <h1>My-Giro</h1>
+    <p>Крупнейший интернет-магазин гироскутеров, сигвеев и электросамокатов от известных мировых производителей</p>
+    <!-- главная кнопка ведёт сразу в каталог — самое частое целевое действие покупателя -->
+    <a href="#catalog" class="btn-white">В каталог</a>
+  </div>
+</section>
+
+<!-- Преимущества: стрелки добавлены как декорация карусели —
+     пока слайдера нет, они не мешают, но разметку менять потом не придётся -->
+<section class="advantages" id="advantages">
+  <div class="container">
+    <div class="head">
+      <h2 class="section-title" style="margin-bottom:0">Наши преимущества</h2>
+      <div class="arrows"><span>&#8249;</span><span>&#8250;</span></div>
+    </div>
+    <div class="advantages-grid">
+      <div class="advantage">
+        <div class="icon"><img src="CSS/img/качество.png" alt="Гарантия качества"></div>
+        <p>Гарантия качества</p>
+      </div>
+      <div class="advantage">
+        <div class="icon"><img src="CSS/img/доставка.png" alt="Быстрая доставка"></div>
+        <p>Быстрая доставка</p>
+      </div>
+      <div class="advantage">
+        <div class="icon"><img src="CSS/img/ассортимент.png" alt="Большой ассортимент"></div>
+        <p>Большой ассортимент</p>
+      </div>
+      <div class="advantage">
+        <div class="icon"><img src="CSS/img/консультант.png" alt="Онлайн-консультант"></div>
+        <p>Онлайн-консультант</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- О нас: текст дублируется в футере — если решите править формулировки,
+     меняйте в обоих местах, иначе тексты разъедутся -->
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">О нас</h2>
+    <p>В нашем интернет-магазине представлен большой выбор гироскутеров, сигвеев и электросамокатов от известных мировых производителей.</p>
+    <p>Все товары, представленные на нашем сайте, отобраны лучшими специалистами в этой области. Купить гироскутер, электросамокат или сигвей недорого. Вы можете в нашем интернет магазине в любое время, когда Вам удобно. Доставка заказов осуществляется бесплатно, в любую точку России.</p>
+  </div>
+</section>
+
+<!-- onsubmit="event.preventDefault();" не даёт форме перезагрузить страницу:
+     бэкенда для подписки пока нет, а страницу терять при клике нельзя -->
+<section class="subscribe">
+  <div class="container">
+    <h3>Подпишитесь на нашу рассылку<br>и оставайтесь в курсе событий</h3>
+    <form onsubmit="event.preventDefault();">
+      <input type="text" placeholder="Имя">
+      <!-- type="email" даёт браузерную проверку формата без своего JS -->
+      <input type="email" placeholder="Email">
+      <button type="submit">Подписаться</button>
+    </form>
+  </div>
+</section>
+
+<!-- Особенности -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title">Особенности гироскутеров</h2>
+    <div class="features-grid">
+      <!-- три списка вместо одного — чтобы минусы и плюсы легли
+           в колонки сетки ровно, по 3 строки в каждой -->
+      <ul>
+        <li>- Травмоопасность</li>
+        <li>- Нет сидения</li>
+        <li>- Только для одного</li>
+      </ul>
+      <ul>
+        <li>+ Исключительная компактность</li>
+        <li>+ Небольшой вес</li>
+        <li>+ Экономичность</li>
+      </ul>
+      <ul>
+        <li>+ Доступность</li>
+        <li>+ Маневренность</li>
+        <li>+ Простота в освоении</li>
+      </ul>
+    </div>
+    <p class="features-note">Этих преимуществ гироскутера вполне достаточно для того, чтобы в своей нише данный вид транспорта являлся одним из самых лучших вариантов!</p>
+  </div>
+</section>
+
+<!-- Каталог: 4 базовых товара + доп. карточки с data-extra.
+     data-category обязан совпадать со значением data-filter у кнопок
+     (регистр и пробелы важны — их сравнивает скрипт).
+     data-extra прячет карточку из «Все», но показывает внутри своей категории -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="catalog-head">
+      <h2 class="section-title" style="margin-bottom:0">Каталог</h2>
+      <div class="filters">
+        <button class="filter active" data-filter="all">Все</button>
+        <button class="filter" data-filter="гироскутеры">Гироскутеры</button>
+        <button class="filter" data-filter="электросамокаты">Электросамокаты</button>
+        <button class="filter" data-filter="сигвеи">Сигвеи</button>
+      </div>
+    </div>
+
+    <div class="catalog-grid">
+      <!-- Исходные 4 карточки — единственное, что видно во вкладке «Все».
+           Порядок карточек намеренно: гиро → сигвей → самокат → сигвей,
+           чтобы в «Все» ряд выглядел разнообразнее -->
+      <div class="product" data-category="гироскутеры">
+        <span class="badge">Гироскутер</span>
+        <div class="photo"><img src="CSS/img/гиро_1.jpg" alt="Xiaomi Ninebot mini Pro White"></div>
+        <h3>Xiaomi Ninebot mini Pro White (Белый)</h3>
+        <div class="price">31 480 р.</div>
+      </div>
+
+      <div class="product" data-category="сигвеи">
+        <span class="badge">Сигвей</span>
+        <div class="photo"><img src="CSS/img/сигвеи_1.jpg" alt="Smart Balance SUV Черная Молния"></div>
+        <h3>Smart Balance SUV Черная Молния 10.5 Premium PRO</h3>
+        <div class="price">8 590 р.</div>
+      </div>
+
+      <div class="product" data-category="электросамокаты">
+        <span class="badge">Электросамокат</span>
+        <div class="photo"><img src="CSS/img/самокат_1.jpg" alt="SUBOR D9"></div>
+        <h3>SUBOR D9</h3>
+        <div class="price">11 790 р.</div>
+      </div>
+
+      <div class="product" data-category="сигвеи">
+        <span class="badge">Сигвей</span>
+        <div class="photo"><img src="CSS/img/сигвеи_2.jpg" alt="Xiaomi Ninebot mini Pro Black"></div>
+        <h3>Xiaomi Ninebot mini Pro Black (Черный)</h3>
+        <div class="price">31 480 р.</div>
+      </div>
+
+      <!-- Доп. карточки: держим их СТРОГО внутри catalog-grid.
+           Если вынести наружу — карточки выпадут из сетки и встанут в столбик
+           (на эту ошибку уже дважды наступали). Видны только при клике
+           на свою категорию -->
+      <div class="product" data-category="гироскутеры" data-extra>
+        <span class="badge">Гироскутер</span>
+        <div class="photo"><img src="CSS/img/гиро_2.jpg" alt="Smart Balance Premium 10"></div>
+        <h3>Smart Balance Premium 10 Цветные Молнии</h3>
+        <div class="price">10 990 р.</div>
+      </div>
+
+      <div class="product" data-category="гироскутеры" data-extra>
+        <span class="badge">Гироскутер</span>
+        <div class="photo"><img src="CSS/img/гиро_3.jpg" alt="Smart Balance SUV Черная Молния 2"></div>
+        <h3>Smart Balance SUV Черная Молния 10.5" Premium PRO</h3>
+        <div class="price">8 590 р.</div>
+      </div>
+
+      <div class="product" data-category="электросамокаты" data-extra>
+        <span class="badge">Электросамокат</span>
+        <div class="photo"><img src="CSS/img/самокат_2.jpg" alt="KUGOO S4"></div>
+        <h3>KUGOO S4 (8800mAh)</h3>
+        <div class="price">13 480 р.</div>
+      </div>
+
+      <div class="product" data-category="электросамокаты" data-extra>
+        <span class="badge">Электросамокат</span>
+        <div class="photo"><img src="CSS/img/самокат_3.jpg" alt="SUBOR D9 2"></div>
+        <h3>SUBOR D9</h3>
+        <div class="price">11 790 р.</div>
+      </div>
+
+      <div class="product" data-category="сигвеи" data-extra>
+        <span class="badge">Сигвей</span>
+        <div class="photo"><img src="CSS/img/сигвеи_3.jpg" alt="Xiaomi Ninebot mini White"></div>
+        <h3>Xiaomi Ninebot mini White (Белый)</h3>
+        <div class="price">14 790 р.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Скрипт стоит ПОСЛЕ каталога: на момент его выполнения карточки уже
+     есть в DOM, и стартовое скрытие data-extra успевает отработать до отрисовки.
+     Если перенести в head без defer — фильтры перестанут работать -->
+<script src="js/script.js"></script>
+
+<!-- Консультанты -->
+<section class="consultants" id="consultants">
+  <div class="container">
+    <h2 class="section-title">Наши консультанты</h2>
+    <div class="consultants-grid">
+      <div class="consultant">
+        <div class="photo"><img src="CSS/img/консультант_1.jpg" alt="Иван Алексеев"></div>
+        <div>
+          <h3>Иван Алексеев</h3>
+          <p class="role">менеджер по продажам</p>
+          <!-- кнопка-заглушка: формы обратной связи ещё нет,
+               но разметку для неё оставляем -->
+          <button class="btn-orange">Задать вопрос</button>
+        </div>
+      </div>
+      <div class="consultant">
+        <div class="photo"><img src="CSS/img/консультант_2.jpg" alt="Галина Петрова"></div>
+        <div>
+          <h3>Галина Петрова</h3>
+          <p class="role">менеджер по продажам</p>
+          <button class="btn-orange">Задать вопрос</button>
+        </div>
+      </div>
+      <div class="consultant">
+        <div class="photo"><img src="CSS/img/консультант_3.jpg" alt="Светлана Астахова"></div>
+        <div>
+          <h3>Светлана Астахова</h3>
+          <p class="role">менеджер по продажам</p>
+          <button class="btn-orange">Задать вопрос</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Бренды: пока это просто текстовые названия — без логотипов,
+     при добавлении <img> менять стили почти не придётся -->
+<section class="brands" id="brands">
+  <div class="container">
+    <span>Xiaomi</span>
+    <span>Smart</span>
+    <span>Balance</span>
+    <span>Linbol</span>
+    <span>Kugoo</span>
+    <span>Subor</span>
+    <span>Airwheel</span>
+  </div>
+</section>
+
+<!-- Полезная информация: картинка задана фоном карточки (не <img>),
+     чтобы поверх неё было видно затемнение и белый текст по центру -->
+<section class="info" id="info">
+  <div class="container">
+    <h2 class="section-title">Полезная информация</h2>
+    <div class="info-grid">
+      <!-- href="#" — заглушка: статьи ещё не написаны,
+           карточки пока просто ведут в никуда -->
+      <a href="#" class="info-card" style="background-image: url('CSS/img/пи_1.jpg')">
+        <span>Как выбрать гироскутер? Советы перед покупкой</span>
+      </a>
+      <a href="#" class="info-card" style="background-image: url('CSS/img/пи_2.jpg')">
+        <span>Электросамокат: какой лучше и как выбрать?</span>
+      </a>
+      <a href="#" class="info-card" style="background-image: url('CSS/img/пи_3.jpg')">
+        <span>Как выбрать сигвей? На что обратить внимание?</span>
+      </a>
+      <a href="#" class="info-card" style="background-image: url('CSS/img/пи_4.jpg')">
+        <span>Советы по выбору гироскутера для ребенка</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Футер: навигация внутри повторяет меню — так пользователь,
+     доскролливший до низа, не возвращается наверх -->
+<footer>
+  <div class="container">
+    <div>
+      <p>В нашем интернет-магазине представлен большой выбор гироскутеров, сигвеев и электросамокатов от известных мировых производителей.</p>
+      <p style="margin-top:12px">Все товары, представленные на нашем сайте, отобраны лучшими специалистами в этой области.</p>
+    </div>
+    <div>
+      <h4>Компания My-Giro</h4>
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#advantages">Наши преимущества</a></li>
+        <li><a href="#consultants">Наши консультанты</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Покупателям</h4>
+      <ul>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#brands">Бренды</a></li>
+        <li><a href="#info">Полезная информация</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Помощь</h4>
+      <ul>
+        <li><a href="#">Как оформить заказ</a></li>
+        <li><a href="#">Оплата</a></li>
+        <li><a href="#">Обмен и возврат товара</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container copyright">Copyright © 2020 My-Giro</div>
+</footer>
+
+</body>
+</html>
